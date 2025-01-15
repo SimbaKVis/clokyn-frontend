@@ -1,12 +1,13 @@
-/* General layout */
+/* General Layout */
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  background-color: #ffffff; /* White background */
 }
 
-/* Logo styles */
+/* Logo Styling */
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -15,53 +16,29 @@
 }
 
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+  filter: drop-shadow(0 0 2em #ccc);
 }
 
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg); 
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-/* Card style */
+/* Card Styling */
 .card {
   padding: 2em;
 }
 
-.read-the-docs {
-  color: #888;
-}
-
-/* Login form container and centering */
+/* Login Form Styles */
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #f0f2f5;
+  background-color: #f4f4f4; /* Light grey background */
 }
 
-/* Form styling */
 .login-container {
   width: 300px;
-  margin: 0 auto;
   padding: 20px;
-  border: 1px solid #ccc;
+  border: 1px solid #ccc; /* Thin grey border */
   border-radius: 5px;
+  background-color: #ffffff; /* White background */
 }
 
 .form-group {
@@ -78,11 +55,11 @@ input {
   width: 100%;
   padding: 8px;
   font-size: 14px;
-  border: 1px solid #ccc;
+  border: 1px solid #ccc; /* Thin grey border */
   border-radius: 4px;
 }
 
-/* General button style */
+/* General Button Style */
 button {
   width: 100%;
   padding: 10px;
@@ -101,7 +78,7 @@ p {
   font-size: 12px;
 }
 
-/* Specific login form styling */
+/* Specific Login Form Styling */
 .login-form {
   display: flex;
   flex-direction: column;

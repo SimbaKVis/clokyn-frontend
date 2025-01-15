@@ -62,12 +62,12 @@ const App = () => {
                   <button onClick={goToNextWeek}>Next Week</button>
                   <button className="date-range-button">{`${startOfWeek.toLocaleDateString()} – ${endOfWeek.toLocaleDateString()}`}</button>
                   <button onClick={goToToday}>Today</button>
-                  <NavigationButtons />  {/* Navigation buttons are now in a separate component */}
                 </div>
               </div>
               <div id="main-container">
                 <div id="left-panel">
                   <h3>Explorer Panel</h3>
+                  <NavigationButtons />  {/* Navigation buttons are now in a separate component */}
                 </div>
                 <div id="calendar">
                   <Calendar startOfWeek={startOfWeek} />
