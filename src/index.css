@@ -1,0 +1,154 @@
+button {
+  background-color: #555555;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin: 0 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #666666;
+}
+
+.day {
+  width: 14%;
+  text-align: center;
+  padding: 10px;
+  background-color: #666666;
+  border-radius: 5px;
+  color: white;
+}
+
+.week-header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #555555;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* Container for the navigation buttons */
+.button-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Date range container styling */
+.date-range-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+}
+
+/* Explorer Panel Styling */
+#left-panel {
+  width: 10%; /* Adjust width of left panel */
+  background-color: #333333;
+  padding: 10px;
+  color: white;
+  font-size: 18px;
+  height: 100%;
+}
+
+/* Today button container styling */
+.today-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Style the header */
+#header {
+  height: 10%;
+  background-color: #444444;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+#app-container {
+  display: flex;
+  flex-direction: column; /* Keep the header and main content stacked */
+  height: 100vh;
+}
+
+#main-container {
+  display: flex; 
+  height: 100%; 
+  width: 100%;
+}
+
+/* Calendar Styles */
+  #calendar {
+      width: 90%; /* Adjust width of calendar */
+      background-color: #444444;
+      padding: 20px;
+      display: flex;
+      flex-direction: column; /* Ensure the calendar content flows vertically */
+  }
+  body {
+      margin: 0;  /* Ensure no margin */
+      padding: 0; /* Remove padding */
+  }
+
+  .time-column {
+    width: 10%;
+    background-color: #444444;
+    color: white;
+    text-align: center;
+    padding: 5px 0;
+    font-weight: bold;
+    border-right: 1px solid #555555;
+  }
+  
+  /* Style for the individual time slots (rows) */
+  .time-row {
+    display: flex;
+    height: 50px; /* Adjust height for time slots */
+    align-items: center;
+    border-bottom: 1px solid #555555;
+  }
+  
+  /* Time cell styling */
+  .time {
+    width: 10%;
+    text-align: center;
+    background-color: #333333;
+    color: white;
+    padding: 10px;
+    border-right: 1px solid #555555;
+  }
+  
+  /* Style for the day columns */
+  .day-column {
+    width: 12%;
+    text-align: center;
+    padding: 10px;
+    background-color: #666666;
+    border-right: 1px solid #555555;
+  }
+  
+  /* Styling for the header of the week (days) */
+  .week-header {
+    display: flex;
+    background-color: #555555;
+    padding: 10px 0;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  .day {
+    width: 12%;
+    padding: 10px;
+    background-color: #444444;
+    color: white;
+  }
