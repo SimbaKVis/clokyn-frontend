@@ -1,17 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Users.css';
 import { useNavigate } from 'react-router-dom';
 import CreateUserForm from '../components/CreateUserForm'; // Import the CreateUserForm component
 
 const Users = () => {
-  // Static placeholder data for users
-  const users = [
-    { firstName: "John", lastName: "Doe", email: "john.doe@example.com", department: "Engineering", teamName: "Dev Team", language: "English", location: "New York", status: "active" },
-    { firstName: "Jane", lastName: "Smith", email: "jane.smith@example.com", department: "Marketing", teamName: "Content Team", language: "Spanish", location: "California", status: "deactivated" }
-  ];
-
+  const [users, setUsers] = useState([]); // State to store user data
   const [showCreateUserForm, setShowCreateUserForm] = useState(false); // State to toggle form visibility
+  const [loading, setLoading] = useState(true); // State to track loading
+  const [error, setError] = useState(null); // State to track errors
   const navigate = useNavigate();
+
+  // Fetch users from the backend API
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const response = await fetch('http://localhost:5000/api/users'); // Replace with your API endpoint
+        if (!response.ok) {
+          throw new Error('Failed to fetch users');
+        }
+        const data = await response.json();
+        console.log
+        setUsers(data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchUsers();
+  }, []);
 
   const handleBackClick = () => {
     navigate('/');
@@ -19,6 +37,10 @@ const Users = () => {
 
   const handleCreateUserClick = () => {
     setShowCreateUserForm(true); // Show the form when "Create user" button is clicked
+  };
+
+  const handleRowClick = (userId) => {
+    navigate(`/editUser/${userId}`); // Navigate to the edit page for the selected user
   };
 
   return (
@@ -32,41 +54,46 @@ const Users = () => {
 
       <div className="main-content">
         <h2>Users List</h2>
-        
+
         {/* Conditionally render the CreateUserForm */}
         {showCreateUserForm ? (
           <CreateUserForm />
         ) : (
-          <table className="users-table">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Email Address</th>
-                <th>Department</th>
-                <th>Team Name</th>
-                <th>Language</th>
-                <th>Location</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              {users.length === 0 ? (
-                <tr><td colSpan="7">No users found</td></tr>
-              ) : (
-                users.map((user, index) => (
-                  <tr key={index}>
-                    <td>{user.firstName} {user.lastName}</td>
-                    <td>{user.email}</td>
-                    <td>{user.department}</td>
-                    <td>{user.teamName}</td>
-                    <td>{user.language}</td>
-                    <td>{user.location}</td>
-                    <td>{user.status}</td>
-                  </tr>
-                ))
-              )}
-            </tbody>
-          </table>
+          <>
+            {loading && <p>Loading users...</p>}
+            {error && <p>Error: {error}</p>}
+
+            <table className="users-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email Address</th>
+                  <th>Department</th>
+                  <th>Team Name</th>
+                  <th>Language</th>
+                  <th>Location</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                {users.length === 0 ? (
+                  <tr><td colSpan="7">No users found</td></tr>
+                ) : (
+                  users.map((user) => (
+                    <tr key={user.id} onClick={() => handleRowClick(user.id)}>
+                      <td>{user.firstName} {user.lastName}</td>
+                      <td>{user.emailAddress}</td>
+                      <td>{user.departmentId}</td>
+                      <td>{user.teamId}</td>
+                      <td>{user.language}</td>
+                      <td>{user.location}</td>
+                      <td>{user.status}</td>
+                    </tr>
+                  ))
+                )}
+              </tbody>
+            </table>
+          </>
         )}
       </div>
     </div>

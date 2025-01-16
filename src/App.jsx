@@ -5,7 +5,8 @@ import Login from './components/Login';
 import Users from './components/Users';
 import Shifts from './components/Shifts';
 import Requests from './components/Requests';
-import NavigationButtons from './components/NavigationButtons';  // New Component for navigation
+import EditUser from './components/EditUser';
+import NavigationButtons from './components/NavigationButtons'; 
 
 const App = () => {
   const [currentWeek, setCurrentWeek] = useState(new Date());
@@ -52,7 +53,9 @@ const App = () => {
           <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
           <Route path="/users" element={<Users />} />
           <Route path="/shifts" element={<Shifts />} />
+          <Route path="/users" element={<Users />} />
           <Route path="/requests" element={<Requests />} />
+          <Route path="/editUser/:userId" element={<EditUser />} />
           <Route path="/" element={isLoggedIn ? (
             <>
               <div id="header">
